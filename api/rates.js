@@ -1,4 +1,4 @@
-import { sql } from "./admin/lib/db.js";
+import { sql } from "../lib/db.js";
 import { requireAdmin } from "../lib/auth.js";
 
 export default async function handler(req, res) {
