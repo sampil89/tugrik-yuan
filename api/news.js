@@ -3,7 +3,7 @@ import { requireAdmin } from "../lib/auth.js";
 
 export default async function handler(req, res) {
   if (req.method === "GET") {
-    const { rows } = await sql`SELECT * FROM news_items ORDER BY created_at DESC LIMIT 100`;
+    const rows = await sql`SELECT * FROM news_items ORDER BY created_at DESC LIMIT 100`;
     return res.status(200).json({ items: rows });
   }
 

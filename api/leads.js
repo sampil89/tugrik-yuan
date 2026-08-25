@@ -22,7 +22,7 @@ export default async function handler(req, res) {
 
   if (req.method === "GET") {
     if (!requireAdmin(req)) return res.status(401).json({ error: "Нужно войти как администратор" });
-    const { rows } = await sql`SELECT * FROM leads ORDER BY created_at DESC LIMIT 200`;
+    const rows = await sql`SELECT * FROM leads ORDER BY created_at DESC LIMIT 200`;
     return res.status(200).json({ leads: rows });
   }
 

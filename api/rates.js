@@ -3,7 +3,7 @@ import { requireAdmin } from "../lib/auth.js";
 
 export default async function handler(req, res) {
   if (req.method === "GET") {
-    const { rows } = await sql`SELECT code, value FROM currency_overrides`;
+    const rows = await sql`SELECT code, value FROM currency_overrides`;
     const overrides = {};
     rows.forEach((r) => { overrides[r.code] = Number(r.value); });
     return res.status(200).json({ overrides });
